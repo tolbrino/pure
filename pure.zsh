@@ -218,7 +218,7 @@ prompt_pure_precmd() {
 	# Check if a nix-shell environment is active and display its name and
 	# installed packages.
 	if [[ -n $IN_NIX_SHELL ]]; then
-	  if [[ -n $IN_NIX_PACKAGES ]]; then
+	  if [[ -n $NIX_SHELL_PACKAGES ]]; then
 			psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
 		fi
 	fi
