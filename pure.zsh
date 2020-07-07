@@ -787,7 +787,7 @@ prompt_pure_setup() {
 		prompt:continuation  242
 		user                 242
 		user:root            default
-		virtualenv           242
+		virtualenv           blue
 	)
 	prompt_pure_colors=("${(@kv)prompt_pure_colors_default}")
 
