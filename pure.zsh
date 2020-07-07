@@ -217,8 +217,10 @@ prompt_pure_precmd() {
 	fi
 	# Check if a nix-shell environment is active and display its name and
 	# installed packages.
-	if [[ -n $IN_NIX_SHELL]]; then
-		psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
+	if [[ -n $IN_NIX_SHELL ]]; then
+	  if [[ -n $IN_NIX_PACKAGES ]]; then
+			psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
+		fi
 	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
 	# Pure should take back control.
