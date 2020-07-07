@@ -215,6 +215,11 @@ prompt_pure_precmd() {
 	if [[ -n $CONDA_DEFAULT_ENV ]]; then
 		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}"
 	fi
+	# Check if a nix-shell environment is active and display its name and
+	# installed packages.
+	if [[ -n $IN_NIX_SHELL]]; then
+		psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
+	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
 	# Pure should take back control.
 	if [[ -n $VIRTUAL_ENV ]] && [[ -z $VIRTUAL_ENV_DISABLE_PROMPT || $VIRTUAL_ENV_DISABLE_PROMPT = 12 ]]; then
