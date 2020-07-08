@@ -220,6 +220,8 @@ prompt_pure_precmd() {
 	if [[ -n $IN_NIX_SHELL ]]; then
 	  if [[ -n $NIX_SHELL_PACKAGES ]]; then
 			psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
+		else
+			psvar[12]="nix-shell"
 		fi
 	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
