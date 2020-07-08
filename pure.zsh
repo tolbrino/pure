@@ -221,7 +221,8 @@ prompt_pure_precmd() {
 	  if [[ -n $NIX_SHELL_PACKAGES ]]; then
 			psvar[12]="${NIX_SHELL_PACKAGES//[$'\t\r\n']}"
 		else
-			psvar[12]="nix-shell"
+			NIX_SHELL_PREFIX='nix-shell'
+			psvar[12]="${NIX_SHELL_PREFIX//[$'\t\r\n']}"
 		fi
 	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
@@ -789,7 +790,7 @@ prompt_pure_setup() {
 		prompt:continuation  242
 		user                 242
 		user:root            default
-		virtualenv           blue
+		virtualenv           yellow
 	)
 	prompt_pure_colors=("${(@kv)prompt_pure_colors_default}")
 
